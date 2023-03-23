@@ -25,9 +25,41 @@ class _LoginpageState extends State<Loginpage> {
         child: Form(
           key: _fromkey,
           child: ListView(
-            children: [
-              Text("Email :"),
+            children: [ 
+              Image.asset("photo\loginball.jpg"),
+            GoogleAuthButton(
+              onPressed: () {
+                GoogleAuthService().singinwithGoogle();
+              },
+            ), 
+           Column(children: [
+                       Divider(
+              thickness: 3,
+              color: Colors.black87,
+              indent: 10,
+              endIndent: 10,
+            ),
+          ]),
+           Column(children: [
+                Text("OR")
+          ]),
+               Column(children: [
+                       Divider(
+              thickness: 3,
+              color: Colors.black87,
+              indent: 10,
+              endIndent: 10,
+            ),
+          ]),
               TextFormField(
+                decoration: InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color.fromARGB(255, 0, 255, 13),),),
+                  prefixIcon: Icon(Icons.account_box),
+                    labelText: "Email",
+                    ),
+
                 controller: _emailController,
                 validator: (value) {
                   if (value!.isEmpty) {
@@ -35,8 +67,15 @@ class _LoginpageState extends State<Loginpage> {
                   }
                 },
               ),
-              Text("Password :"),
+              
               TextFormField(
+               decoration: InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color.fromARGB(255, 0, 255, 13),),),
+                  prefixIcon: Icon(Icons.account_box),
+                    labelText: "Password",
+                    ),
                 controller: _passwordController,
                 validator: (value) {
                   if (value!.isEmpty) {
@@ -44,6 +83,14 @@ class _LoginpageState extends State<Loginpage> {
                   }
                 },
               ),
+              Column(children: [
+                       Divider(
+              thickness: 1,
+              color: Colors.black87,
+              indent: 10,
+              endIndent: 10,
+            ),
+          ]),
               ElevatedButton(
                   onPressed: () {
                     if (_fromkey.currentState!.validate()) {
@@ -61,19 +108,16 @@ class _LoginpageState extends State<Loginpage> {
                       ;
                     }
                   },
+                  
                   child: const Text("Login")),
-
-
-GoogleAuthButton(
-              onPressed: () {
-                GoogleAuthService().singinwithGoogle();
-              },
+                  Column(children: [
+                       Divider(
+              thickness: 1,
+              color: Colors.black87,
+              indent: 10,
+              endIndent: 10,
             ),
-ElevatedButton(
-                onPressed: () {
-                  GoogleAuthService().googleSingOut();
-                },
-                child: Text("Sign out")),
+          ]),
               //ไม่ต้องไปยุ่งมัน
               ElevatedButton(
                   onPressed: () {
