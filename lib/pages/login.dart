@@ -19,14 +19,14 @@ class _LoginpageState extends State<Loginpage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Login"),
+        title: const Text("สนามฟุตบอลมหาวิทยาลัยทักษิณฯ"),
       ),
       body: SafeArea(
         child: Form(
           key: _fromkey,
           child: ListView(
             children: [ 
-              Image.asset("photo\loginball.jpg"),
+              Image.asset("C:\final\thisisfinal\photo\loginball.jpg"),
             GoogleAuthButton(
               onPressed: () {
                 GoogleAuthService().singinwithGoogle();
@@ -38,13 +38,9 @@ class _LoginpageState extends State<Loginpage> {
               color: Colors.black87,
               indent: 10,
               endIndent: 10,
-            ),
-          ]),
-           Column(children: [
-                Text("OR")
-          ]),
-               Column(children: [
-                       Divider(
+            ), 
+                Text("OR"),
+              Divider(
               thickness: 3,
               color: Colors.black87,
               indent: 10,
@@ -59,7 +55,6 @@ class _LoginpageState extends State<Loginpage> {
                   prefixIcon: Icon(Icons.account_box),
                     labelText: "Email",
                     ),
-
                 controller: _emailController,
                 validator: (value) {
                   if (value!.isEmpty) {

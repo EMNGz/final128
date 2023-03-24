@@ -21,13 +21,29 @@ class _RegisterpageState extends State<Registerpage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("REGISTER"),
+        title: Center(child: Text("สนามฟุตบอลมหาวิทยาลัยทักษิณฯ"), ) 
       ),
-      body: SafeArea(
+      body: 
+
+      
+      SafeArea(
         child: Form(
           key: _fromkey,
           child: ListView(
-            children: [
+            children: [ 
+               Text(
+                  "REGISTER",
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 0, 0, 0),
+                    fontSize: 25,
+                  ),
+                  textAlign: TextAlign.center,
+                ), Divider(
+              thickness: 3,
+              color: Colors.black87,
+              indent: 10,
+              endIndent: 10,
+            ),
               buildEmailInput(),
               buildPasswordInput(),
               buildNameInput(),
@@ -37,11 +53,18 @@ class _RegisterpageState extends State<Registerpage> {
           ),
         ),
       ),
+      
     );
   }
 
   TextFormField buildEmailInput() {
     return TextFormField(
+      decoration: InputDecoration(
+      focusedBorder: OutlineInputBorder(
+      borderSide: BorderSide(
+      color: Color.fromARGB(255, 0, 255, 13),),),
+      labelText: "Email",
+      ),
       controller: _email,
       validator: (value) {
         if (value!.isEmpty) {
@@ -49,14 +72,17 @@ class _RegisterpageState extends State<Registerpage> {
         }
         return null;
       },
-      decoration: const InputDecoration(
-        labelText: "E-mail",
-      ),
     );
   }
 
   TextFormField buildPasswordInput() {
     return TextFormField(
+      decoration: InputDecoration(
+      focusedBorder: OutlineInputBorder(
+      borderSide: BorderSide(
+      color: Color.fromARGB(255, 0, 255, 13),),),
+      labelText: "Password",
+      ),
       controller: _password,
       validator: (value) {
         if (value!.isEmpty) {
@@ -65,25 +91,33 @@ class _RegisterpageState extends State<Registerpage> {
         return null;
       },
       obscureText: true,
-      decoration: const InputDecoration(
-        labelText: "Password",
-      ),
+     
     );
   }
 
   Widget buildNameInput() {
     return TextFormField(
+      decoration: InputDecoration(
+      focusedBorder: OutlineInputBorder(
+      borderSide: BorderSide(
+      color: Color.fromARGB(255, 0, 255, 13),),),
+      labelText: "Name",
+      ),
       controller: _name,
-      decoration: const InputDecoration(labelText: "Name"),
+      
     );
   }
 
   Widget buildTelInput() {
     return TextFormField(
-      controller: _tel,
-      decoration: const InputDecoration(
-        labelText: "Tel",
+      decoration: InputDecoration(
+      focusedBorder: OutlineInputBorder(
+      borderSide: BorderSide(
+      color: Color.fromARGB(255, 0, 255, 13),),),
+      labelText: "Tel",
       ),
+      controller: _tel,
+     
     );
   }
 
