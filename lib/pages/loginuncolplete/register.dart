@@ -48,7 +48,35 @@ class _RegisterpageState extends State<Registerpage> {
               buildPasswordInput(),
               buildNameInput(),
               buildTelInput(),
+               Text("Gender", 
+               style: TextStyle(
+                    color: Color.fromARGB(255, 0, 0, 0),
+                    fontSize: 16,
+                  ),),
+              RadioListTile(
+                title: Text("ชาย"),
+                value: "ชาย",
+                groupValue: status,
+                onChanged: (value) {
+                  setState(() {
+                    status = value.toString();
+                  });
+                },
+              ),
+              RadioListTile(
+                title: Text("หญิง"),
+                value: "หญิง",
+                groupValue: status,
+                onChanged: (value) {
+                  setState(() {
+                    status = value.toString();
+                  });
+                },
+              ),
+
+
               buildEmailSignUp(),
+              
             ],
           ),
         ),
@@ -135,4 +163,15 @@ class _RegisterpageState extends State<Registerpage> {
       ),
     );
   }
+
+      buildGenderSignUp(){RadioListTile(
+                title: Text("นิสิต"),
+                value: "นิสิต",
+                groupValue: status,
+                onChanged: (value) {
+                  setState(() {
+                    status = value.toString();
+                  });
+                },
+              );}
 }

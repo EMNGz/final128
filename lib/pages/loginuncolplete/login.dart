@@ -26,7 +26,7 @@ class _LoginpageState extends State<Loginpage> {
           key: _fromkey,
           child: ListView(
             children: [ 
-              Image.asset("C:\final\thisisfinal\photo\loginball.jpg"),
+              Image.asset(""),
             GoogleAuthButton(
               onPressed: () {
                 GoogleAuthService().singinwithGoogle();
@@ -115,13 +115,16 @@ class _LoginpageState extends State<Loginpage> {
           ]),
               //ไม่ต้องไปยุ่งมัน
               ElevatedButton(
+              
                   onPressed: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => Registerpage()));
+                  
                   },
-                  child: const Text("Register"))
+                  
+                  child:  Text("Register"))
             ],
           ),
         ),
