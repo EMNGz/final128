@@ -20,13 +20,27 @@ class _LoginpageState extends State<Loginpage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("สนามฟุตบอลมหาวิทยาลัยทักษิณฯ"),
-      ),
+        backgroundColor: Colors.greenAccent,
+            ),
       body: SafeArea(
         child: Form(
           key: _fromkey,
-          child: ListView(
+          child: Column(
             children: [ 
-              Image.asset(''),
+              Text(
+                  "Sing In",
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 0, 0, 0),
+                    fontSize: 25,
+                  ),
+                  textAlign: TextAlign.center,
+                ),Divider(
+              thickness: 1,
+              color: Colors.black87,
+              indent: 50,
+              endIndent: 50,
+            ),
+              Image.asset('thisisfinal\photo\1.jpg',fit: BoxFit.cover),
             GoogleAuthButton(
               onPressed: () {
                 GoogleAuthService().singinwithGoogle();
@@ -34,17 +48,17 @@ class _LoginpageState extends State<Loginpage> {
             ), 
            Column(children: [
                        Divider(
-              thickness: 3,
+              thickness: 1,
               color: Colors.black87,
-              indent: 10,
-              endIndent: 10,
+              indent: 50,
+              endIndent: 50,
             ), 
                 Text("OR"),
               Divider(
-              thickness: 3,
+              thickness: 1,
               color: Colors.black87,
-              indent: 10,
-              endIndent: 10,
+              indent: 50,
+              endIndent: 50,
             ),
           ]),
               TextFormField(
@@ -62,7 +76,6 @@ class _LoginpageState extends State<Loginpage> {
                   }
                 },
               ),
-              
               TextFormField(
                decoration: InputDecoration(
                   focusedBorder: OutlineInputBorder(
@@ -82,10 +95,12 @@ class _LoginpageState extends State<Loginpage> {
                        Divider(
               thickness: 1,
               color: Colors.black87,
-              indent: 10,
-              endIndent: 10,
+              indent: 50,
+              endIndent: 50,
             ),
           ]),
+             
+             
               ElevatedButton(
                   onPressed: () {
                     if (_fromkey.currentState!.validate()) {
@@ -103,28 +118,24 @@ class _LoginpageState extends State<Loginpage> {
                       ;
                     }
                   },
-                  
-                  child: const Text("Login")),
-                  Column(children: [
-                       Divider(
+                  child: const Text("Sing in")),
+          Column(children: [
+            Divider(
               thickness: 1,
-              color: Colors.black87,
-              indent: 40,
-              endIndent: 40,
+                color: Colors.black87,
+                  indent: 50,
+                    endIndent: 50,
             ),
           ]),
               //ไม่ต้องไปยุ่งมัน
               ElevatedButton(
-              
                   onPressed: () {
                     Navigator.push(
-                        context,
+                      context,
                         MaterialPageRoute(
-                            builder: (context) => Registerpage()));
-                  
-                  },
-                  
-                  child:  Text("Register"))
+                          builder: (context) => Registerpage()));
+                }, 
+                  child:  Text("Sing Up"))
             ],
           ),
         ),

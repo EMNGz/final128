@@ -2,6 +2,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:thisisfinal/pages/logincomplete/completelogin.dart';
+import 'package:thisisfinal/pages/logincomplete/homepages.dart';
 
 class Booking extends StatefulWidget {
   const Booking({super.key});
@@ -20,7 +22,8 @@ class _BookingState extends State<Booking> {
   @override
   Widget build(BuildContext context) {
    return Scaffold(
-      appBar: AppBar( title: Center(child: Text("สนามฟุตบอลมหาวิทยาลัยทักษิณฯ"), ) ),
+    
+      appBar: AppBar( title: Center(child: Text("สนามฟุตบอลมหาวิทยาลัยทักษิณฯ"), ), backgroundColor: Colors.greenAccent,),
       body: SafeArea(
         child:Align(
   alignment: AlignmentDirectional(0,-1),
@@ -41,8 +44,8 @@ class _BookingState extends State<Booking> {
                   Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Align(
-                    alignment: AlignmentDirectional(0, -0.8),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                     child: Text(
                     'จองสนาม', style: TextStyle(
                     color: Color.fromARGB(255, 0, 0, 0),
@@ -54,11 +57,10 @@ class _BookingState extends State<Booking> {
   ),
 ),
                 Divider(//เส้่น
-                  height: 1,
-                  thickness: 1,
-                  indent: 40,
-                  endIndent: 40,
-                  color: Colors.black,
+                   thickness: 1,
+                        indent: 50,
+                        endIndent: 50,
+                        color: Colors.black,
                         ),
                       ],
                     ),
@@ -66,7 +68,7 @@ class _BookingState extends State<Booking> {
                   ),
                 ]
               ),
-            Image.asset("", width: 300,
+            Image.asset("photo/football.jpg", width: 300,
                   height: 150,),
            Align(
                     alignment: AlignmentDirectional(-0.7, 1),
@@ -161,7 +163,17 @@ class _BookingState extends State<Booking> {
                              ),),
                                 
                     ),
-                    controller: _tell, ),))
+                    controller: _tell, ),)), 
+        ElevatedButton(
+          onPressed: () {      
+            Navigator.push(
+              context,
+                MaterialPageRoute(
+                  builder: (context) => completelogin()));
+                  }, 
+                  child: Text("ยืนยัน"), ) 
+
+                    
           
 
                     

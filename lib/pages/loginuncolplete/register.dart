@@ -21,7 +21,7 @@ class _RegisterpageState extends State<Registerpage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text("สนามฟุตบอลมหาวิทยาลัยทักษิณฯ"), ) 
+        title: Center(child: Text("สนามฟุตบอลมหาวิทยาลัยทักษิณฯ"), ), backgroundColor: Colors.greenAccent,
       ),
       body: 
 
@@ -39,42 +39,15 @@ class _RegisterpageState extends State<Registerpage> {
                   ),
                   textAlign: TextAlign.center,
                 ), Divider(
-              thickness: 3,
+              thickness: 1,
               color: Colors.black87,
-              indent: 10,
-              endIndent: 10,
+              indent: 50,
+              endIndent: 50,
             ),
               buildEmailInput(),
               buildPasswordInput(),
               buildNameInput(),
-              buildTelInput(),
-               Text("Gender", 
-               style: TextStyle(
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    fontSize: 16,
-                  ),),
-              RadioListTile(
-                title: Text("ชาย"),
-                value: "ชาย",
-                groupValue: status,
-                onChanged: (value) {
-                  setState(() {
-                    status = value.toString();
-                  });
-                },
-              ),
-              RadioListTile(
-                title: Text("หญิง"),
-                value: "หญิง",
-                groupValue: status,
-                onChanged: (value) {
-                  setState(() {
-                    status = value.toString();
-                  });
-                },
-              ),
-
-
+              buildTelInput(),             
               buildEmailSignUp(),
               
             ],
@@ -152,7 +125,8 @@ class _RegisterpageState extends State<Registerpage> {
   Widget buildEmailSignUp() {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: EmailAuthButton(
+      child: 
+      EmailAuthButton(
         text: "Sing Up",
         onPressed: () {
           AuthService()
@@ -164,14 +138,35 @@ class _RegisterpageState extends State<Registerpage> {
     );
   }
 
-      buildGenderSignUp(){RadioListTile(
-                title: Text("นิสิต"),
-                value: "นิสิต",
+      buildGenderSignUp()  {
+        return Row(
+          children: [ 
+          Text("Gender", 
+            style: TextStyle(
+              color: Color.fromARGB(255, 0, 0, 0),
+                fontSize: 16,
+                  ),),
+          RadioListTile(
+                title: Text("ชาย"),
+                value: "ชาย",
                 groupValue: status,
                 onChanged: (value) {
                   setState(() {
                     status = value.toString();
                   });
                 },
-              );}
+              ),
+          RadioListTile(
+                title: Text("หญิง"),
+                value: "หญิง",
+                groupValue: status,
+                onChanged: (value) {
+                  setState(() {
+                    status = value.toString();
+            });
+          },
+        )
+        ], );
+      }  
+
 }

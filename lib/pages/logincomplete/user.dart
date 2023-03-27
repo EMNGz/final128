@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:thisisfinal/pages/loginuncolplete/login.dart';
+import 'package:thisisfinal/pages/loginuncolplete/register.dart';
 
 class Userpage extends StatefulWidget {
   const Userpage({super.key});
@@ -13,22 +15,20 @@ class _UserpageState extends State<Userpage> {
   @override
    Widget build(BuildContext context) {
     return Scaffold(  
-      appBar: AppBar( title: Center(child: Text("สนามฟุตบอลมหาวิทยาลัยทักษิณฯ"), ) ),
+      appBar: AppBar( title: Center(child: Text("สนามฟุตบอลมหาวิทยาลัยทักษิณฯ"), ),
+      backgroundColor: Colors.greenAccent, ),
       body: SafeArea(
         child: GestureDetector(
           
           child: Container(
             width: 400,
             height: 900,
-            decoration: BoxDecoration(
-              
-            ),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
                 Align(
                   alignment: AlignmentDirectional(0, 0),
-                  child: Column(
+                  child: Column( //////////////1
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
@@ -63,9 +63,9 @@ class _UserpageState extends State<Userpage> {
                         ),
                       ),
                     ],
-                  ),
+                  ),  ////////1
                 ),
-                Row(
+                Row( /////////2
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
@@ -83,8 +83,8 @@ class _UserpageState extends State<Userpage> {
                       ),
                     ),
                   ],
-                ),
-                Row(
+                ), /////////2
+                Row(////////////3
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
@@ -102,8 +102,8 @@ class _UserpageState extends State<Userpage> {
                       ),
                     ),
                   ],
-                ),
-                Row(
+                ),///////////////3
+                Row(//////////////4
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
@@ -121,8 +121,8 @@ class _UserpageState extends State<Userpage> {
                       ),
                     ),
                   ],
-                ),
-                Row(
+                ),/////////////////4
+                Row(/////////////////5
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
@@ -140,8 +140,8 @@ class _UserpageState extends State<Userpage> {
                       ),
                     ),
                   ],
-                ),
-                Row(
+                ),//////////////////5
+                Row(/////////////////6
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
@@ -159,14 +159,23 @@ class _UserpageState extends State<Userpage> {
                       ),
                     ),
                   ],
-                ),
+                ),///////////////////6
                 Divider(
                   thickness: 1,
                   indent: 50,
                   endIndent: 50,
                   color: Colors.black,
                 ),
-               
+               ElevatedButton(
+              
+                  onPressed: () {
+                   
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Loginpage()));
+                  }, 
+                  child: Text("Logout"), )  
               ],
             ),
           ),
