@@ -1,8 +1,8 @@
 import 'package:auth_buttons/auth_buttons.dart';
 import 'package:flutter/material.dart';
-import 'package:thisisfinal/pages/completelogin.dart';
-import 'package:thisisfinal/pages/register.dart';
-import '../service/auth_service.dart';
+import 'package:thisisfinal/pages/logincomplete/completelogin.dart';
+import 'package:thisisfinal/pages/loginuncolplete/register.dart';
+import '../../service/auth_service.dart';
 
 class Loginpage extends StatefulWidget {
   const Loginpage({super.key});
@@ -26,7 +26,7 @@ class _LoginpageState extends State<Loginpage> {
           key: _fromkey,
           child: ListView(
             children: [ 
-              Image.asset(""),
+              Image.asset(''),
             GoogleAuthButton(
               onPressed: () {
                 GoogleAuthService().singinwithGoogle();
@@ -109,8 +109,8 @@ class _LoginpageState extends State<Loginpage> {
                        Divider(
               thickness: 1,
               color: Colors.black87,
-              indent: 10,
-              endIndent: 10,
+              indent: 40,
+              endIndent: 40,
             ),
           ]),
               //ไม่ต้องไปยุ่งมัน

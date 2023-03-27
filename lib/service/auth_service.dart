@@ -60,7 +60,6 @@ class AuthService {
     await FirebaseAuth.instance.signOut();
   }
   //google login
-  
 }
 
 class GoogleAuthService {
@@ -77,3 +76,8 @@ class GoogleAuthService {
     GoogleSignIn().signOut();
   }
 }
+
+//booking field
+
+
+  
