@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:thisisfinal/pages/loginuncolplete/login.dart';
 
@@ -13,8 +14,12 @@ class Userpage extends StatefulWidget {
 }
 
 class _UserpageState extends State<Userpage> {
+  
+
   @override
+  final user = FirebaseAuth.instance.currentUser!;
    Widget build(BuildContext context) {
+    
 
     return Scaffold(  
       appBar: AppBar( title: Center(child: Text("สนามฟุตบอลมหาวิทยาลัยทักษิณฯ"), ),
@@ -66,7 +71,9 @@ class _UserpageState extends State<Userpage> {
 
 
                ElevatedButton(
-              
+              style: ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll(Color.fromARGB(255, 255, 51, 51)),
+                foregroundColor: const MaterialStatePropertyAll(Colors.white)),
                   onPressed: () {
                    showConfirmDialog();
                   }, 
@@ -146,8 +153,21 @@ Widget showOnetimeRead() {
           print(doc.id);
           // ดึงข้อมูล มาแสดง เพื่อแก้ไข
         },
-        title: Text(
-           "    ชื่อ :   "+ data['name'] + "    เบอร์มือถือ :   " + data['tel']),
+       title: Column(
+          children: [
+            Text(
+                "    Username :   " + data['username']),
+            Text(
+              
+               "    ชื่อ :   "+ data['name']),
+                Text(
+                "    เบอร์มือถือ :   " + data['tel']),
+
+                Text("Uid :  " +user.uid),
+                
+                
+          ],
+        ),
         
       
       );
@@ -157,4 +177,3 @@ Widget showOnetimeRead() {
   }
 
 }
-

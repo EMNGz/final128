@@ -166,7 +166,9 @@ class _BookingState extends State<Booking> {
                     ),
                     controller: _tell, ),)), 
         ElevatedButton(
-          
+          style: ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll(Color.fromARGB(255, 16, 216, 33)),
+                foregroundColor: const MaterialStatePropertyAll(Colors.white)),
           onPressed: () {
           showConfirmDialog();
         },
@@ -190,7 +192,7 @@ class _BookingState extends State<Booking> {
             child: Text("Back")),
         ElevatedButton(
             style: ButtonStyle(
-                backgroundColor: MaterialStatePropertyAll(Colors.red[300]),
+                backgroundColor: MaterialStatePropertyAll(Color.fromARGB(255, 0, 170, 14)),
                 foregroundColor: const MaterialStatePropertyAll(Colors.white)),
            onPressed: () {
              Bookingfield()

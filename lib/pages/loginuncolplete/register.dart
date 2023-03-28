@@ -45,12 +45,31 @@ class _RegisterpageState extends State<Registerpage> {
               indent: 50,
               endIndent: 50,
             ),
-              buildEmailInput(),
-              buildPasswordInput(),
-              buildEmailuserInput(),
-              buildNameInput(),
-              buildTelInput(),             
-              buildEmailSignUp(),
+                        
+              Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: buildEmailInput(),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: buildPasswordInput(),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: buildEmailuserInput(),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: buildNameInput(),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: buildTelInput(),
+              ),             
+              Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: buildEmailSignUp(),
+              ),
               
             ],
           ),

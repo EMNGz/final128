@@ -43,32 +43,37 @@ class _LoginpageState extends State<Loginpage> {
                Image.asset('photo/football.jpg',fit: BoxFit.cover),
               
               //google login
-            GoogleAuthButton(
-              onPressed: () {
-                GoogleAuthService().singinwithGoogle();
-              },
-            ), 
+          //  GoogleAuthButton(
+           //   onPressed: () {
+            //    GoogleAuthService().singinwithGoogle();
+             // },
+          //  ), 
               //googlelogin
-             ElevatedButton(
-                onPressed: () {
-                  GoogleAuthService().googleSingOut();
-                },
-                child: Text("Sign out")),
-           Column(children: [
-                       Divider(
+            // ElevatedButton(
+            //    onPressed: () {
+              //    GoogleAuthService().googleSingOut();
+            //    },
+         //       child: Text("Sign out")),
+          // Column(children: [
+              //         Divider(
+            //  thickness: 1,
+          //    color: Colors.black87,
+        //      indent: 50,
+           //   endIndent: 50,
+       //     ), 
+       //         Text("OR"),
+           //   Divider(
+        //      thickness: 1,
+        //      color: Colors.black87,
+        //      indent: 50,
+        //      endIndent: 50,
+     //       ),
+     //     ]),
+     Divider(
               thickness: 1,
               color: Colors.black87,
               indent: 50,
-              endIndent: 50,
-            ), 
-                Text("OR"),
-              Divider(
-              thickness: 1,
-              color: Colors.black87,
-              indent: 50,
-              endIndent: 50,
-            ),
-          ]),
+              endIndent: 50,),
               TextFormField(
                 decoration: InputDecoration(
                   focusedBorder: OutlineInputBorder(
