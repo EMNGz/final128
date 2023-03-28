@@ -171,17 +171,11 @@ class _BookingState extends State<Booking> {
           Bookingfield()
               .fieldBooking(
                   _field.text, _day.text, _person.text, _tell.text)
-              .then((value) => Navigator.push(context,
+              .then((value) => Navigator.pushReplacement(context,
                         MaterialPageRoute(
                           builder: (context) => completelogin())));
         },
-                  child: Text("ยืนยัน"), ) 
-
-                    
-          
-
-                    
-                     
+                  child: Text("ยืนยัน"), )                
           ]), 
         )
         

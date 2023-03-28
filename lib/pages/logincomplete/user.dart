@@ -1,8 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:thisisfinal/pages/loginuncolplete/login.dart';
-import 'package:thisisfinal/pages/loginuncolplete/register.dart';
+
+import '../../service/auth_service.dart';
+
 
 class Userpage extends StatefulWidget {
   const Userpage({super.key});
@@ -14,9 +15,11 @@ class Userpage extends StatefulWidget {
 class _UserpageState extends State<Userpage> {
   @override
    Widget build(BuildContext context) {
+
     return Scaffold(  
       appBar: AppBar( title: Center(child: Text("สนามฟุตบอลมหาวิทยาลัยทักษิณฯ"), ),
       backgroundColor: Colors.greenAccent, ),
+      
       body: SafeArea(
         child: GestureDetector(
           
@@ -26,11 +29,14 @@ class _UserpageState extends State<Userpage> {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
+
                 Align(
                   alignment: AlignmentDirectional(0, 0),
                   child: Column( //////////////1
                     mainAxisSize: MainAxisSize.max,
+                    
                     children: [
+                      //แกภายใน
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                         child: Text(
@@ -38,7 +44,7 @@ class _UserpageState extends State<Userpage> {
                              style: TextStyle(
                     color: Color.fromARGB(255, 0, 0, 0),
                     fontSize: 30,
-        ),   
+                      ),   
                         ),
                       ),
                       Divider(
@@ -65,115 +71,24 @@ class _UserpageState extends State<Userpage> {
                     ],
                   ),  ////////1
                 ),
-                Row( /////////2
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(40, 40, 20, 0),
-                      child: Text(
-                        'ชื่อ :',
-                       
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 40, 20, 0),
-                      child: Text(
-                        'pong',
-                       
-                      ),
-                    ),
-                  ],
-                ), /////////2
-                Row(////////////3
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(40, 30, 20, 0),
-                      child: Text(
-                        'เบอร์โทร :',
-                       
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
-                      child: Text(
-                        '08423',
-                        
-                      ),
-                    ),
-                  ],
-                ),///////////////3
-                Row(//////////////4
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(40, 30, 20, 0),
-                      child: Text(
-                        'อีเมล :',
-                        
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
-                      child: Text(
-                        '@gmail',
-                        
-                      ),
-                    ),
-                  ],
-                ),/////////////////4
-                Row(/////////////////5
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(40, 30, 20, 0),
-                      child: Text(
-                        'ที่อยู่ :',
-                        
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
-                      child: Text(
-                        'Hello World',
-                        
-                      ),
-                    ),
-                  ],
-                ),//////////////////5
-                Row(/////////////////6
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(40, 30, 20, 0),
-                      child: Text(
-                        'Uid :',
-                        
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
-                      child: Text(
-                        '083',
-                        
-                      ),
-                    ),
-                  ],
-                ),///////////////////6
+               ////////////////6
                 Divider(
                   thickness: 1,
                   indent: 50,
                   endIndent: 50,
                   color: Colors.black,
-                ),
+                ),//หัวเรื่อง
+
+
+
+
+
+
+
                ElevatedButton(
               
                   onPressed: () {
-                   
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => Loginpage()));
+                   showConfirmDialog();
                   }, 
                   child: Text("Logout"), )  
               ],
@@ -183,4 +98,39 @@ class _UserpageState extends State<Userpage> {
       ),
     );
   }
+   
+
+ void showConfirmDialog() {
+    var dialog = AlertDialog(
+      title: const Text("Logout"),
+      content: Text("ออกจากระบบ?"),
+      actions: [
+        ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text("Back")),
+        ElevatedButton(
+            style: ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll(Colors.red[300]),
+                foregroundColor: const MaterialStatePropertyAll(Colors.white)),
+           onPressed: () {
+            AuthService.logOutUser();
+                   Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Loginpage()));
+                    
+                  }, 
+            child: Text("logout")),
+      ],
+    );
+    showDialog(
+      context: context,
+      builder: (context) => dialog,
+    );
+  }
+
+
+   
 }
