@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:thisisfinal/pages/logincomplete/completelogin.dart';
+import 'package:thisisfinal/pages/logincomplete/user.dart';
 import 'package:thisisfinal/pages/loginuncolplete/login.dart';
 import 'package:thisisfinal/pages/loginuncolplete/register.dart';
 
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
       
         primarySwatch: Colors.blue,
       ),
-      home: const Loginpage(),
+      home: const completelogin(),
     );
   }
 }

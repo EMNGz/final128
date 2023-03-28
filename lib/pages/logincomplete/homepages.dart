@@ -40,7 +40,10 @@ class _HomepagesState extends State<Homepages> {
   Widget showRealtimeChange() {
     return Column(
       children: [
-        const Text("คิวจองสนาม"),
+        const Text("คิวจองสนาม",style: TextStyle(
+                        color: Color.fromARGB(255, 0, 0, 0),
+                         fontSize: 20,
+                          ),),
         createRealTimeDate(),
         const Divider(),
       ],

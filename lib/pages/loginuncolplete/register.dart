@@ -15,7 +15,8 @@ class _RegisterpageState extends State<Registerpage> {
   final TextEditingController _password = TextEditingController();
   final TextEditingController _tel = TextEditingController();
   final TextEditingController _name = TextEditingController();
-  final TextEditingController _emailuser = TextEditingController();
+  final TextEditingController _username = TextEditingController();
+  final TextEditingController _gmail = TextEditingController();
   String? status;
   @override
   Widget build(BuildContext context) {
@@ -65,12 +66,12 @@ class _RegisterpageState extends State<Registerpage> {
       focusedBorder: OutlineInputBorder(
       borderSide: BorderSide(
       color: Color.fromARGB(255, 0, 255, 13),),),
-      labelText: "Username",
+      labelText: "Email",
       ),
       controller: _email,
       validator: (value) {
         if (value!.isEmpty) {
-          return "กรุณากรอก Username";
+          return "กรุณากรอก Email";
         }
         return null;
       },
@@ -82,12 +83,12 @@ class _RegisterpageState extends State<Registerpage> {
       focusedBorder: OutlineInputBorder(
       borderSide: BorderSide(
       color: Color.fromARGB(255, 0, 255, 13),),),
-      labelText: "Email",
+      labelText: "Username",
       ),
-      controller: _emailuser,
+      controller: _username,
       validator: (value) {
         if (value!.isEmpty) {
-          return "กรุณากรอก Email";
+          return "กรุณากรอก Username";
         }
         return null;
       },
@@ -127,6 +128,18 @@ class _RegisterpageState extends State<Registerpage> {
       
     );
   }
+   Widget buildgmailInput() {
+    return TextFormField(
+      decoration: InputDecoration(
+      focusedBorder: OutlineInputBorder(
+      borderSide: BorderSide(
+      color: Color.fromARGB(255, 0, 255, 13),),),
+      labelText: "Email ที่ติดต่อได้",
+      ),
+      controller: _gmail,
+      
+    );
+  }
 
   Widget buildTelInput() {
     return TextFormField(
@@ -150,7 +163,7 @@ class _RegisterpageState extends State<Registerpage> {
         onPressed: () {
           AuthService()
               .signUpWithEmail(
-                  _email.text, _password.text, _name.text, _tel.text)
+                  _email.text, _password.text, _name.text, _tel.text,_username.text)
               .then((value) => Navigator.pop(context));
         },
       ),

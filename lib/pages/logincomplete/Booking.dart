@@ -168,12 +168,7 @@ class _BookingState extends State<Booking> {
         ElevatedButton(
           
           onPressed: () {
-          Bookingfield()
-              .fieldBooking(
-                  _field.text, _day.text, _person.text, _tell.text)
-              .then((value) => Navigator.pushReplacement(context,
-                        MaterialPageRoute(
-                          builder: (context) => completelogin())));
+          showConfirmDialog();
         },
                   child: Text("ยืนยัน"), )                
           ]), 
@@ -182,4 +177,41 @@ class _BookingState extends State<Booking> {
       )
     );
   }
+
+  void showConfirmDialog() {
+    var dialog = AlertDialog(
+      title: const Text("ยืนยัน"),
+      content: Text("ยืนยันการจอง?"),
+      actions: [
+        ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text("Back")),
+        ElevatedButton(
+            style: ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll(Colors.red[300]),
+                foregroundColor: const MaterialStatePropertyAll(Colors.white)),
+           onPressed: () {
+             Bookingfield()
+              .fieldBooking(
+                  _field.text, _day.text, _person.text, _tell.text)
+              .then((value) => Navigator.pushReplacement(context,
+                        MaterialPageRoute(
+                          builder: (context) => completelogin())));
+                   Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => completelogin()));
+                    
+                  }, 
+            child: Text("ยืนยัน")),
+      ],
+    );
+    showDialog(
+      context: context,
+      builder: (context) => dialog,
+    );
+  }
+
 }

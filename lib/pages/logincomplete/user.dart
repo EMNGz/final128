@@ -53,35 +53,15 @@ class _UserpageState extends State<Userpage> {
                         endIndent: 50,
                         color: Colors.black,
                       ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
-                        child: Container(
-                          width: 120,
-                          height: 120,
-                          clipBehavior: Clip.antiAlias,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                          ),
-                          child: Image.asset(
-                            '',
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
+                      
                     ],
                   ),  ////////1
                 ),
-               ////////////////6
-                Divider(
-                  thickness: 1,
-                  indent: 50,
-                  endIndent: 50,
-                  color: Colors.black,
-                ),//หัวเรื่อง
+              
 
 
 
-
+                showOnetimeRead(),
 
 
 
@@ -131,6 +111,50 @@ class _UserpageState extends State<Userpage> {
     );
   }
 
+Widget showOnetimeRead() {
+    return Column(
+      children: [
+        createOnetimeRealData(),
+        const Divider(),
+      ],
+    );
+  }
+   Widget createOnetimeRealData() {
+    return FutureBuilder(
+      future: FirebaseFirestore.instance.collection("Users").get(),
+      builder: (context, snapshot) {
+        
+        print(snapshot.connectionState);
+        if (snapshot.connectionState == ConnectionState.done) {
+          return Column(
+            children: createDataList(snapshot.data),
+          );
+        } else {
+          return const Text("Waiting Data");
+        }
+      },
+    );
+  }
 
-   
+  List<Widget> createDataList(QuerySnapshot<Map<String, dynamic>>? data) {
+    List<Widget> widgets = [];
+    widgets = data!.docs.map((doc) {
+      var data = doc.data();
+      print(data['Users']);
+      return ListTile(
+        onTap: () {
+          print(doc.id);
+          // ดึงข้อมูล มาแสดง เพื่อแก้ไข
+        },
+        title: Text(
+           "    ชื่อ :   "+ data['name'] + "    เบอร์มือถือ :   " + data['tel']),
+        
+      
+      );
+    }).toList();
+
+    return widgets;
+  }
+
 }
+

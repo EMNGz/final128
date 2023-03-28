@@ -5,7 +5,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 class AuthService {
   //register
   Future<void> signUpWithEmail(
-      String email, String password, String name, String tel) async {
+      String email, String password, String name, String tel, String username) async {
     try {
       // Create New User Account to Firebase Authen
       final credential =
@@ -20,6 +20,7 @@ class AuthService {
       FirebaseFirestore.instance.collection("Users").doc(uid).set({
         "name": name,
         "tel": tel,
+        "username": username,
       });
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
