@@ -14,7 +14,9 @@ class _HomepagesState extends State<Homepages> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar( title: Center(child: Text("สนามฟุตบอลมหาวิทยาลัยทักษิณฯ"), ), backgroundColor: Colors.greenAccent,),
+      appBar: AppBar( title: const Text("สนามฟุตบอลมหาวิทยาลัยทักษิณฯ"),
+        backgroundColor: Color.fromARGB(255, 72, 172, 123),
+            ),
         body: SafeArea(
           child: Container(
             child: Column(

@@ -22,24 +22,28 @@ class _RegisterpageState extends State<Registerpage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text("สนามฟุตบอลมหาวิทยาลัยทักษิณฯ"), ), backgroundColor: Colors.greenAccent,
-      ),
+        title: const Text("สนามฟุตบอลมหาวิทยาลัยทักษิณฯ"),
+        backgroundColor: Color.fromARGB(255, 72, 172, 123),
+            ),
       body: 
 
       
-      SafeArea(
+      Container(color: Color.fromARGB(255, 227, 228, 193),
         child: Form(
           key: _fromkey,
-          child: ListView(
+          child: ListView( 
             children: [ 
-               Text(
-                  "REGISTER",
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    fontSize: 25,
+               Padding(
+                 padding: const EdgeInsets.all(18.0),
+                 child: Text(
+                    "REGISTER",
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 0, 0, 0),
+                      fontSize: 25,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
-                ), Divider(
+               ), Divider(
               thickness: 1,
               color: Colors.black87,
               indent: 50,
@@ -47,27 +51,27 @@ class _RegisterpageState extends State<Registerpage> {
             ),
                         
               Padding(
-                padding: const EdgeInsets.all(18.0),
+                padding: EdgeInsetsDirectional.fromSTEB(50, 5, 50, 0),
                 child: buildEmailInput(),
               ),
               Padding(
-                padding: const EdgeInsets.all(18.0),
+                padding: EdgeInsetsDirectional.fromSTEB(50, 5, 50, 0),
                 child: buildPasswordInput(),
               ),
               Padding(
-                padding: const EdgeInsets.all(18.0),
+                padding: EdgeInsetsDirectional.fromSTEB(50, 5, 50, 0),
                 child: buildEmailuserInput(),
               ),
               Padding(
-                padding: const EdgeInsets.all(18.0),
+                padding: EdgeInsetsDirectional.fromSTEB(50, 5, 50, 0),
                 child: buildNameInput(),
               ),
               Padding(
-                padding: const EdgeInsets.all(18.0),
+                padding: EdgeInsetsDirectional.fromSTEB(50, 5, 50, 0),
                 child: buildTelInput(),
               ),             
               Padding(
-                padding: const EdgeInsets.all(18.0),
+                padding: EdgeInsetsDirectional.fromSTEB(50, 5, 50, 0),
                 child: buildEmailSignUp(),
               ),
               
