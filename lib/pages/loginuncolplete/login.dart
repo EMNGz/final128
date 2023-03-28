@@ -22,10 +22,10 @@ class _LoginpageState extends State<Loginpage> {
         title: const Text("สนามฟุตบอลมหาวิทยาลัยทักษิณฯ"),
         backgroundColor: Colors.greenAccent,
             ),
-      body: SafeArea(
+      body: SafeArea( 
         child: Form(
           key: _fromkey,
-          child: Column(
+          child: Column( 
             children: [ 
               Text(
                   "Sing In",
@@ -40,7 +40,8 @@ class _LoginpageState extends State<Loginpage> {
               indent: 50,
               endIndent: 50,
             ),
-               Image.asset('photo/football.jpg',fit: BoxFit.cover),
+               Image.asset("assets/football.jpg", width: 300,
+                  height: 150,fit: BoxFit.cover),
               
               //google login
           //  GoogleAuthButton(

@@ -69,7 +69,7 @@ class _BookingState extends State<Booking> {
                   ),
                 ]
               ),
-            Image.asset("photo/football.jpg", width: 300,
+            Image.asset("assets/Football-Match.jpg", width: 300,
                   height: 150,),
            Align(
                     alignment: AlignmentDirectional(-0.7, 1),

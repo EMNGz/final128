@@ -15,9 +15,9 @@ class Userpage extends StatefulWidget {
 
 class _UserpageState extends State<Userpage> {
   
-
+final user = FirebaseAuth.instance.currentUser!;
   @override
-  final user = FirebaseAuth.instance.currentUser!;
+  
    Widget build(BuildContext context) {
     
 
