@@ -32,6 +32,9 @@ class AuthService {
     }
   }
 
+
+
+
   //login
   static Future<int> loginUser(String email, String password) async {
     try {
@@ -59,6 +62,8 @@ class AuthService {
   static Future<void> logOutUser() async {
     await FirebaseAuth.instance.signOut();
   }
+
+  fieldbo(String text, String text2, String text3, String text4) {}
   //google login
 }
 
@@ -78,6 +83,30 @@ class GoogleAuthService {
 }
 
 //booking field
+class Bookingfield{
+  Future<void> fieldBooking(String field, String day, String person, String tellphone) async {
+    try {
+      // Get current user from FirebaseAuth
+      final user = FirebaseAuth.instance.currentUser;
+      if (user == null) {
+        // Handle case where there is no current user
+        throw Exception('No current user');
+      }
+      
+      // Store User information (name, tel) to Firestore
+      await FirebaseFirestore.instance.collection("Booking").doc(user.uid).set({
+        "field": field,
+        "day": day,
+        "person": person,
+        "tellphone": tellphone,
+      });
+      print("Booking successful");
+    } catch (e) {
+      print("Error booking: $e");
+      // Handle error here
+    }
+  }
+}
 
 
   

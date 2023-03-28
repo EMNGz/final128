@@ -1,10 +1,11 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:thisisfinal/pages/logincomplete/completelogin.dart';
 import 'package:thisisfinal/pages/logincomplete/homepages.dart';
-
+import '../../service/auth_service.dart';
 class Booking extends StatefulWidget {
   const Booking({super.key});
 
@@ -13,7 +14,7 @@ class Booking extends StatefulWidget {
 }
 
 class _BookingState extends State<Booking> {
- final _fromkey = GlobalKey<FormState>();
+ final _formkey = GlobalKey<FormState>();
  final TextEditingController _field = TextEditingController();
  final TextEditingController _day = TextEditingController();
  final TextEditingController _person = TextEditingController();
@@ -165,12 +166,15 @@ class _BookingState extends State<Booking> {
                     ),
                     controller: _tell, ),)), 
         ElevatedButton(
-          onPressed: () {      
-            Navigator.push(
-              context,
-                MaterialPageRoute(
-                  builder: (context) => completelogin()));
-                  }, 
+          
+          onPressed: () {
+          Bookingfield()
+              .fieldBooking(
+                  _field.text, _day.text, _person.text, _tell.text)
+              .then((value) => Navigator.push(context,
+                        MaterialPageRoute(
+                          builder: (context) => completelogin())));
+        },
                   child: Text("ยืนยัน"), ) 
 
                     

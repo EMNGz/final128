@@ -1,10 +1,17 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:thisisfinal/pages/logincomplete/completelogin.dart';
 import 'package:thisisfinal/pages/loginuncolplete/login.dart';
 import 'package:thisisfinal/pages/loginuncolplete/register.dart';
 
-void main() {
-  
+import 'firebase_options.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(const MyApp());
 }
 
@@ -20,7 +27,7 @@ class MyApp extends StatelessWidget {
       
         primarySwatch: Colors.blue,
       ),
-      home: const completelogin(),
+      home: const Loginpage(),
     );
   }
 }

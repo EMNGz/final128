@@ -40,12 +40,20 @@ class _LoginpageState extends State<Loginpage> {
               indent: 50,
               endIndent: 50,
             ),
-              Image.asset('thisisfinal\photo\1.jpg',fit: BoxFit.cover),
+               Image.asset('photo/football.jpg',fit: BoxFit.cover),
+              
+              //google login
             GoogleAuthButton(
               onPressed: () {
                 GoogleAuthService().singinwithGoogle();
               },
             ), 
+              //googlelogin
+             ElevatedButton(
+                onPressed: () {
+                  GoogleAuthService().googleSingOut();
+                },
+                child: Text("Sign out")),
            Column(children: [
                        Divider(
               thickness: 1,
@@ -77,6 +85,7 @@ class _LoginpageState extends State<Loginpage> {
                 },
               ),
               TextFormField(
+                obscureText: true,
                decoration: InputDecoration(
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(

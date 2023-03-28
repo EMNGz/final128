@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:thisisfinal/pages/loginuncolplete/login.dart';
 import 'package:auth_buttons/auth_buttons.dart';
 import '../../service/auth_service.dart';
 
@@ -16,6 +15,7 @@ class _RegisterpageState extends State<Registerpage> {
   final TextEditingController _password = TextEditingController();
   final TextEditingController _tel = TextEditingController();
   final TextEditingController _name = TextEditingController();
+  final TextEditingController _emailuser = TextEditingController();
   String? status;
   @override
   Widget build(BuildContext context) {
@@ -46,6 +46,7 @@ class _RegisterpageState extends State<Registerpage> {
             ),
               buildEmailInput(),
               buildPasswordInput(),
+              buildEmailuserInput(),
               buildNameInput(),
               buildTelInput(),             
               buildEmailSignUp(),
@@ -64,9 +65,26 @@ class _RegisterpageState extends State<Registerpage> {
       focusedBorder: OutlineInputBorder(
       borderSide: BorderSide(
       color: Color.fromARGB(255, 0, 255, 13),),),
-      labelText: "Email",
+      labelText: "Username",
       ),
       controller: _email,
+      validator: (value) {
+        if (value!.isEmpty) {
+          return "กรุณากรอก Username";
+        }
+        return null;
+      },
+    );
+  }
+  TextFormField buildEmailuserInput() {
+    return TextFormField(
+      decoration: InputDecoration(
+      focusedBorder: OutlineInputBorder(
+      borderSide: BorderSide(
+      color: Color.fromARGB(255, 0, 255, 13),),),
+      labelText: "Email",
+      ),
+      controller: _emailuser,
       validator: (value) {
         if (value!.isEmpty) {
           return "กรุณากรอก Email";
@@ -75,6 +93,7 @@ class _RegisterpageState extends State<Registerpage> {
       },
     );
   }
+
 
   TextFormField buildPasswordInput() {
     return TextFormField(
