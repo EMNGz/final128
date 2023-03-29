@@ -148,6 +148,12 @@ class _RegisterpageState extends State<Registerpage> {
       labelText: "Name",
       ),
       controller: _name,
+      validator: (value) {
+        if (value!.isEmpty) {
+          return "กรุณากรอก ชื่อ";
+        }
+        return null;
+      },
       
     );
   }
@@ -170,9 +176,15 @@ class _RegisterpageState extends State<Registerpage> {
       focusedBorder: OutlineInputBorder(
       borderSide: BorderSide(
       color: Color.fromARGB(255, 0, 255, 13),),),
-      labelText: "Tel",
+      labelText: "Telephone",
       ),
       controller: _tel,
+      validator: (value) {
+        if (value!.isEmpty) {
+          return "กรุณากรอก เบอร์มือถือ";
+        }
+        return null;
+      },
      
     );
   }
@@ -184,6 +196,7 @@ class _RegisterpageState extends State<Registerpage> {
       EmailAuthButton(
         text: "Sing Up",
         onPressed: () {
+          
           AuthService()
               .signUpWithEmail(
                   _email.text, _password.text, _name.text, _tel.text,_username.text)

@@ -16,13 +16,14 @@ class Userpage extends StatefulWidget {
 class _UserpageState extends State<Userpage> {
   
 final user = FirebaseAuth.instance.currentUser!;
+
   @override
   
    Widget build(BuildContext context) {
     
 
     return Scaffold(  
-      appBar: AppBar( title: const Text("สนามฟุตบอลมหาวิทยาลัยทักษิณฯ"),
+      appBar: AppBar( title: Center(child: const Text("สนามฟุตบอลมหาวิทยาลัยทักษิณฯ")),
         backgroundColor: Color.fromARGB(255, 72, 172, 123),
             ),
       

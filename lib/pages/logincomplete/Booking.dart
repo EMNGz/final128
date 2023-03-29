@@ -1,10 +1,8 @@
-import 'package:firebase_database/firebase_database.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter/foundation.dart';
+
+
 import 'package:flutter/material.dart';
 import 'package:thisisfinal/pages/logincomplete/completelogin.dart';
-import 'package:thisisfinal/pages/logincomplete/homepages.dart';
+
 import '../../service/auth_service.dart';
 class Booking extends StatefulWidget {
   const Booking({super.key});
@@ -24,7 +22,7 @@ class _BookingState extends State<Booking> {
   Widget build(BuildContext context) {
    return Scaffold(
     
-      appBar: AppBar( title: Center(child: Text("สนามฟุตบอลมหาวิทยาลัยทักษิณฯ"), ), backgroundColor: Colors.greenAccent,),
+      appBar: AppBar( title: Center(child: Text("สนามฟุตบอลมหาวิทยาลัยทักษิณฯ"), ), backgroundColor: Color.fromARGB(255, 72, 172, 123),),
       body: SafeArea(
         child:Align(
   alignment: AlignmentDirectional(0,-1),
@@ -69,7 +67,7 @@ class _BookingState extends State<Booking> {
                   ),
                 ]
               ),
-            Image.asset("assets/Football-Match.jpg", width: 300,
+            Image.asset("assets/sxd.jpg", width: 300,
                   height: 150,),
            Align(
                     alignment: AlignmentDirectional(-0.7, 1),
@@ -86,6 +84,7 @@ class _BookingState extends State<Booking> {
                 width: 280,height: 40, child:
                  TextFormField(
                     decoration: InputDecoration(
+                     
                       enabledBorder: OutlineInputBorder(
                        borderSide: BorderSide(
                           color: Colors.black,
@@ -98,17 +97,18 @@ class _BookingState extends State<Booking> {
                     alignment: AlignmentDirectional(-0.7, 1),
                     child: Text(
                     'วันที่ :', style: TextStyle(
+                      
                     color: Color.fromARGB(255, 0, 0, 0),height: 2,
                     
-), 
-),    
-), 
+                      ), 
+                          ),    
+                                ), 
       Align(
           alignment: AlignmentDirectional(0, 0),
             child: Container(
                 width: 280,height: 40, child:
                  TextFormField(
-                    decoration: InputDecoration(
+                    decoration: InputDecoration( hintText: 'dd/mm/yy',
                       enabledBorder: OutlineInputBorder(
                        borderSide: BorderSide(
                           color: Colors.black,

@@ -14,7 +14,7 @@ class _HomepagesState extends State<Homepages> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar( title: const Text("สนามฟุตบอลมหาวิทยาลัยทักษิณฯ"),
+      appBar: AppBar( title: Center(child: const Text("สนามฟุตบอลมหาวิทยาลัยทักษิณฯ")),
         backgroundColor: Color.fromARGB(255, 72, 172, 123),
             ),
         body: SafeArea(
@@ -40,15 +40,18 @@ class _HomepagesState extends State<Homepages> {
   }
 
   Widget showRealtimeChange() {
-    return Column(
-      children: [
-        const Text("คิวจองสนาม",style: TextStyle(
-                        color: Color.fromARGB(255, 0, 0, 0),
-                         fontSize: 20,
-                          ),),
-        createRealTimeDate(),
-        const Divider(),
-      ],
+    return Padding(
+      padding: EdgeInsetsDirectional.fromSTEB(50, 5, 50, 0),
+      child: Column(
+        children: [
+          const Text("คิวการใช้สนาม",style: TextStyle(
+                          color: Color.fromARGB(255, 0, 0, 0),
+                           fontSize: 20,
+                            ),),
+          createRealTimeDate(),
+          const Divider(),
+        ],
+      ),
     );
   }
 
