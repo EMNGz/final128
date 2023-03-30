@@ -3,10 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:thisisfinal/pages/logincomplete/Booking.dart';
 import 'package:thisisfinal/pages/logincomplete/homepages.dart';
 import 'package:thisisfinal/pages/logincomplete/user.dart';
-import 'package:thisisfinal/pages/loginuncolplete/login.dart';
-import '../../service/auth_service.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class completelogin extends StatefulWidget {
   const completelogin({super.key});

@@ -185,14 +185,16 @@ class _BookingState extends State<Booking> {
       title: const Text("ยืนยัน"),
       content: Text("ยืนยันการจอง?"),
       actions: [
-        ElevatedButton(
+        ElevatedButton( style: ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll(Color.fromARGB(255, 255, 0, 0)),
+                foregroundColor: const MaterialStatePropertyAll(Colors.white)),
             onPressed: () {
               Navigator.of(context).pop();
             },
             child: Text("Back")),
         ElevatedButton(
             style: ButtonStyle(
-                backgroundColor: MaterialStatePropertyAll(Color.fromARGB(255, 0, 170, 14)),
+                backgroundColor: MaterialStatePropertyAll(Color.fromARGB(255, 0, 255, 21)),
                 foregroundColor: const MaterialStatePropertyAll(Colors.white)),
            onPressed: () {
              Bookingfield()

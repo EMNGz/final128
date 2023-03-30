@@ -121,61 +121,54 @@ final user = FirebaseAuth.instance.currentUser!;
   }
 
 Widget showOnetimeRead() {
-    return Column(
-      children: [
-        createOnetimeRealData(),
-        const Divider(),
-      ],
-    );
-  }
-   Widget createOnetimeRealData() {
-    return FutureBuilder(
-      future: FirebaseFirestore.instance.collection("Users").get(),
-      builder: (context, snapshot) {
-        
-        print(snapshot.connectionState);
-        if (snapshot.connectionState == ConnectionState.done) {
-          return Column(
-            children: createDataList(snapshot.data),
-          );
-        } else {
-          return const Text("Waiting Data");
-        }
-      },
-    );
-  }
+  return Column(
+    children: [
+      createOnetimeRealData(),
+      const Divider(),
+    ],
+  );
+}
 
-  List<Widget> createDataList(QuerySnapshot<Map<String, dynamic>>? data) {
-    List<Widget> widgets = [];
-    widgets = data!.docs.map((doc) {
-      var data = doc.data();
-      print(data['Users']);
-      return ListTile(
-        onTap: () {
-          print(doc.id);
-          // ดึงข้อมูล มาแสดง เพื่อแก้ไข
-        },
-       title: Column(
-          children: [
-            Text(
-                "    Username :   " + data['username']),
-            Text(
-              
-               "    ชื่อ :   "+ data['name']),
-                Text(
-                "    เบอร์มือถือ :   " + data['tel']),
+Widget createOnetimeRealData() {
+  return FutureBuilder(
+    future: FirebaseFirestore.instance.collection("Users").get(),
+    builder: (context, snapshot) {
+      print(snapshot.connectionState);
+      if (snapshot.connectionState == ConnectionState.done) {
+        return Column(
+          children: createDataList(snapshot.data, "EMNGz"),
+        );
+      } else {
+        return const Text("Waiting Data");
+      }
+    },
+  );
+}
 
-                Text("Uid :  " +user.uid),
-                
-                
-          ],
-        ),
-        
-      
-      );
-    }).toList();
+List<Widget> createDataList(QuerySnapshot<Map<String, dynamic>>? data, String name) {
+  List<Widget> widgets = [];
+  widgets = data!.docs
+      .where((doc) => doc.data()['name'] == name) // filter documents by user email
+      .map((doc) {
+        var data = doc.data();
+        print(data['Users']);
+        return ListTile(
+          onTap: () {
+            print(doc.id);
+            // ดึงข้อมูล มาแสดง เพื่อแก้ไข
+          },
+          title: Column(
+            children: [
+              Text("Username: ${data['username']}"),
+              Text("ชื่อ: ${data['name']}"),
+              Text("เบอร์มือถือ: ${data['tel']}"),
+              Text("Uid: ${user.uid}"),
+            ],
+          ),
+        );
+      }).toList();
+  return widgets;
+}
 
-    return widgets;
-  }
-
+//show data only for the current user's email
 }
